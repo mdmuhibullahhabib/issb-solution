@@ -3,7 +3,6 @@ import './globals.css'
 import Footer from '@/components/shared/Footer'
 import Navbar from '@/components/shared/Navbar'
 import NextAuthProvider from './providers/NextAuthProvider'
-import LayoutWrapper from '@/components/LayoutWrapper'
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -28,14 +27,11 @@ export default function RootLayout({ children }) {
       >
         <NextAuthProvider>
 
-                    <LayoutWrapper>{children}</LayoutWrapper>
-
-
-          {/* <Navbar />
+          <Navbar />
 
           {children}
 
-          <Footer /> */}
+          <Footer />
         </NextAuthProvider>
       </body>
     </html>

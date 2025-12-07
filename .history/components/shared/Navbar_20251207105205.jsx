@@ -3,24 +3,12 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { FiMenu, FiX } from "react-icons/fi";
 import { useSession } from "next-auth/react";
-import { useRouter } from "next/navigation";
-
-
-// Fake user data
-const fakeUser = {
-    name: "Muhibullah Habib",
-    email: "muhib@example.com",
-    avatar: "https://i.pravatar.cc/100?img=11",
-    role: "admin",
-};
 
 export default function Navbar() {
     const [open, setOpen] = useState(false);
     const [scroll, setScroll] = useState(false);
-    const router = useRouter();
-    const { data: session, status } = useSession();
-    console.log(session)
-    console.log(status)
+      const { data: session, status } = useSession();
+      console.log(session)
 
     // Scroll detection for shadow effect
     useEffect(() => {
@@ -37,10 +25,10 @@ export default function Navbar() {
         { name: "যোগাযোগ", href: "/contact" },
     ];
 
-    // User icon click
+        // User icon click
     const handleUserClick = () => {
         if (status == "authenticated") {
-            setUserDrawerOpen(true);
+                    setUserDrawerOpen(true);
         } else {
             router.push("/auth");
         }
@@ -73,27 +61,13 @@ export default function Navbar() {
                             </Link>
                         ))}
                     </div>
-
-                    {/* User Icon */}
-                    <button
-                        onClick={handleUserClick}
-                        className="p-2 rounded-full hover:bg-gray-100 transition duration-150"
+                    
+                    <Link
+                        href="/auth"
+                        className="px-4 py-2 border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-600 hover:text-white transition"
                     >
-                        {status == "authenticated" ? (
-                            <img
-                                src={fakeUser?.avatar}
-                                alt="user"
-                                className="h-8 w-8 rounded-full border"
-                            />
-                        ) : (
-                            <Link
-                                href="/auth"
-                                className="px-4 py-2 border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-600 hover:text-white transition"
-                            >
-                                Login
-                            </Link>
-                        )}
-                    </button>
+                        Login
+                    </Link>
                 </div>
 
                 {/* Mobile Toggle */}

@@ -5,19 +5,10 @@ import { FiMenu, FiX } from "react-icons/fi";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 
-
-// Fake user data
-const fakeUser = {
-    name: "Muhibullah Habib",
-    email: "muhib@example.com",
-    avatar: "https://i.pravatar.cc/100?img=11",
-    role: "admin",
-};
-
 export default function Navbar() {
     const [open, setOpen] = useState(false);
     const [scroll, setScroll] = useState(false);
-    const router = useRouter();
+        const router = useRouter();
     const { data: session, status } = useSession();
     console.log(session)
     console.log(status)
@@ -81,7 +72,7 @@ export default function Navbar() {
                     >
                         {status == "authenticated" ? (
                             <img
-                                src={fakeUser?.avatar}
+                                src={user?.avatar}
                                 alt="user"
                                 className="h-8 w-8 rounded-full border"
                             />

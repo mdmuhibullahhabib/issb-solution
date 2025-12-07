@@ -31,11 +31,11 @@ export default function RootLayout({ children }) {
                     <LayoutWrapper>{children}</LayoutWrapper>
 
 
-          {/* <Navbar />
+          <Navbar />
 
           {children}
 
-          <Footer /> */}
+          <Footer />
         </NextAuthProvider>
       </body>
     </html>

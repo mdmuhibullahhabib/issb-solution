@@ -81,7 +81,7 @@ export default function Navbar() {
                     >
                         {status == "authenticated" ? (
                             <img
-                                src={fakeUser?.avatar}
+                                src={user?.avatar}
                                 alt="user"
                                 className="h-8 w-8 rounded-full border"
                             />
