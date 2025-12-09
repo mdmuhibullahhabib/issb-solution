@@ -139,7 +139,7 @@ export default function Navbar() {
             <DrawerMenu
                 isOpen={userDrawerOpen}
                 onClose={() => setUserDrawerOpen(false)}
-                // user={user}
+                user={user}
             />
         </>
     );

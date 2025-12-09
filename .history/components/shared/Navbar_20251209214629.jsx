@@ -19,8 +19,6 @@ export default function Navbar() {
     const [open, setOpen] = useState(false);
     const [scroll, setScroll] = useState(false);
     const router = useRouter();
-        const [drawerOpen, setDrawerOpen] = useState(false);
-    const [userDrawerOpen, setUserDrawerOpen] = useState(false);
     const { data: session, status } = useSession();
     console.log(session)
     console.log(status)
@@ -139,7 +137,7 @@ export default function Navbar() {
             <DrawerMenu
                 isOpen={userDrawerOpen}
                 onClose={() => setUserDrawerOpen(false)}
-                // user={user}
+                user={user}
             />
         </>
     );
