@@ -10,7 +10,6 @@ export default function AdminLayout({ children }) {
     { name: "Dashboard", path: "/admin/dashboard" },
     { name: "Users", path: "/admin/users" },
     { name: "Orders", path: "/admin/orders" },
-    { name: "Course", path: "/admin/course" },
     { name: "Home", path: "/" },
   ];
 
