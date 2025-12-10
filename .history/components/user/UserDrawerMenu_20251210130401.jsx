@@ -4,13 +4,13 @@ import { FiX, FiUser, FiShoppingBag, FiSettings, FiGrid, FiLogOut } from "react-
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { signOut, useSession } from "next-auth/react";
+import { useSession } from "next-auth/react";
 import Link from "next/link";
 
 export default function DrawerMenu({ isOpen, onClose, user = {} }) {
   const router = useRouter();
-  const { data: session, status } = useSession();
-  console.log(session)
+      const { data: session, status } = useSession();
+      console.log(session)
 
   const handleNavigate = (path) => {
     onClose();
@@ -21,7 +21,9 @@ export default function DrawerMenu({ isOpen, onClose, user = {} }) {
     // You can replace with your logout logic
     console.log("User logged out");
     onClose();
-    await signOut();
+        await signOut({
+      callbackUrl: "/",
+    });
   };
 
   const isAdmin = user?.role === "admin";
@@ -84,7 +86,7 @@ export default function DrawerMenu({ isOpen, onClose, user = {} }) {
           </button>
 
           <Link
-            href={"/mycourse"}
+          href={"/mycourse"}
             // onClick={() => handleNavigate("/mycourse")}
             className="flex items-center gap-3 w-full p-3 rounded-xl hover:bg-gray-100 transition"
           >
@@ -93,7 +95,7 @@ export default function DrawerMenu({ isOpen, onClose, user = {} }) {
           </Link>
 
           <Link
-            href={"/admin/dashboard"}
+          href={"/admin/dashboard"}
             // onClick={() => handleNavigate("/mycourse")}
             className="flex items-center gap-3 w-full p-3 rounded-xl hover:bg-gray-100 transition"
           >
