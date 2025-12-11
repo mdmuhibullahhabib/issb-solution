@@ -77,7 +77,7 @@ export default function Hero() {
         </Link>
 
         <Link
-          href="/issb/iq-test"
+          href="/iq-test"
           className="bg-green-600 text-white px-8 py-3 rounded-xl font-semibold hover:bg-green-500 transition shadow-md"
         >
           IQ Model Test

@@ -70,14 +70,14 @@ export default function Hero() {
       {/* Buttons */}
       <div className="mt-6 flex flex-col sm:flex-row gap-4">
         <Link
-          href="/issb/iq-practice"
+          href="//iq-practice"
           className="bg-green-900 text-white px-8 py-3 rounded-xl font-semibold hover:bg-green-800 transition shadow-md"
         >
           Free IQ Practice
         </Link>
 
         <Link
-          href="/issb/iq-test"
+          href="/iq-test"
           className="bg-green-600 text-white px-8 py-3 rounded-xl font-semibold hover:bg-green-500 transition shadow-md"
         >
           IQ Model Test
