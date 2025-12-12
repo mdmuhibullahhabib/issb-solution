@@ -127,7 +127,7 @@ export default function PracticeQuestions() {
             <p className="mt-5 text-gray-600 text-sm">৯০ টি {examType}-{category || "Category"} পাওয়া গিয়েছে।</p>
 
             {/* Question Card */}
-            <McqCard />
+            <McqCard
         </div>
     );
 }

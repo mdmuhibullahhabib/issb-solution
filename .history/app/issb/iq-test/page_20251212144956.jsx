@@ -1,7 +1,6 @@
 "use client";
 import React, { useState } from "react";
 import { Lock, Play } from "lucide-react";
-import Link from "next/link";
 
 export default function IqTest() {
   // Fake user data
@@ -29,7 +28,7 @@ export default function IqTest() {
   };
 
   return (
-    <div className="p-5 max-w-xl mx-auto mt-10">
+    <div className="p-5 max-w-xl mx-auto">
       <h2 className="text-2xl font-bold mb-4">Model Test</h2>
 
       <div className="flex flex-col gap-4">
@@ -48,7 +47,7 @@ export default function IqTest() {
 
               {isUnlocked ? (
                 <Link
-                href={`/model-test/${test.id}`}
+                
                  className="flex items-center gap-2 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition">
                   <Play size={18} /> Start
                 </Link>

@@ -29,7 +29,7 @@ export default function IqTest() {
   };
 
   return (
-    <div className="p-5 max-w-xl mx-auto mt-10">
+    <div className="p-5 max-w-xl mx-auto">
       <h2 className="text-2xl font-bold mb-4">Model Test</h2>
 
       <div className="flex flex-col gap-4">
