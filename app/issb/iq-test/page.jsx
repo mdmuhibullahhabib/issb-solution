@@ -7,8 +7,8 @@ export default function IqTest() {
   // Fake user data
   const user = {
     name: "Rakib Hasan",
-    // subscription: "pending", 
-    subscription: "active",  
+    subscription: "pending", 
+    // subscription: "active",  
     // subscription: "none",     
   };
 
