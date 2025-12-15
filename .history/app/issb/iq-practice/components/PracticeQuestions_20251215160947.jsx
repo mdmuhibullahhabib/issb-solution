@@ -23,7 +23,7 @@ export default function PracticeQuestions({
       <div className="mt-6 bg-white p-4 rounded-xl border flex gap-4">
         {/* Exam Type */}
         <div>
-          <label className="text-lg mr-2">Exam Type</label>
+          <label className="text-sm mr-2">Exam Type</label>
           <select
             value={examType}
             onChange={(e) => {
@@ -39,7 +39,7 @@ export default function PracticeQuestions({
 
         {/* Category */}
         <div>
-          <label className="text-lg mr-2">Category</label>
+          <label className="text-sm">Category</label>
           <select
             value={category}
             onChange={(e) => setCategory(e.target.value)}

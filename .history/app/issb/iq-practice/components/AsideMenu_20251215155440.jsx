@@ -12,12 +12,14 @@ export default function AsideMenu({
   category,
   setCategory,
 }) {
-  const [showVerbal, setShowVerbal] = useState(true);
+  // 🔹 Dropdown toggle state
+    const [showVerbal, setShowVerbal] = useState(true);
+
   const [showNonVerbal, setShowNonVerbal] = useState(true);
 
   return (
     <aside className="w-64 bg-white border-r p-4 sticky top-0 h-screen overflow-y-auto">
-
+      
       {/* Logo */}
       <div className="mb-6">
         <h2 className="text-xl font-bold text-green-900">
@@ -25,41 +27,28 @@ export default function AsideMenu({
         </h2>
       </div>
 
-      {/* ---------------- Verbal Heading ---------------- */}
-      <button
-        onClick={() => setShowVerbal(!showVerbal)}
-        className="w-full flex justify-between items-center px-4 py-2 mb-2 text-sm font-bold uppercase text-gray-900 hover:bg-gray-100 rounded-lg"
-      >
-        Verbal
-        <span className="text-xs">
-          {showVerbal ? "▲" : "▼"}
-        </span>
-      </button>
+      {/* ---------------- Verbal ---------------- */}
+      <div className="space-y-1 mb-6">
+        {verbalCategories.map((item) => (
+          <button
+            key={item}
+            onClick={() => {
+              setExamType("Verbal");
+              setCategory(item);
+            }}
+            className={`block w-full text-left px-4 py-2 rounded-lg transition
+              ${
+                examType === "Verbal" && category === item
+                  ? "bg-green-100 text-green-700 font-semibold"
+                  : "text-gray-700 hover:bg-gray-100"
+              }`}
+          >
+            {item}
+          </button>
+        ))}
+      </div>
 
-      {/* ---------------- Verbal List ---------------- */}
-      {showVerbal && (
-        <div className="space-y-1 mb-6">
-          {verbalCategories.map((item) => (
-            <button
-              key={item}
-              onClick={() => {
-                setExamType("Verbal");
-                setCategory(item);
-              }}
-              className={`block w-full text-left px-4 py-2 rounded-lg transition
-                ${
-                  examType === "Verbal" && category === item
-                    ? "bg-green-100 text-green-700 font-semibold"
-                    : "text-gray-700 hover:bg-gray-100"
-                }`}
-            >
-              {item}
-            </button>
-          ))}
-        </div>
-      )}
-
-      {/* ---------------- Non-Verbal Heading ---------------- */}
+      {/* ---------------- Non-Verbal Dropdown Header ---------------- */}
       <button
         onClick={() => setShowNonVerbal(!showNonVerbal)}
         className="w-full flex justify-between items-center px-4 py-2 mb-2 text-sm font-bold uppercase text-gray-900 hover:bg-gray-100 rounded-lg"
@@ -70,7 +59,7 @@ export default function AsideMenu({
         </span>
       </button>
 
-      {/* ---------------- Non-Verbal List ---------------- */}
+      {/* ---------------- Non-Verbal Dropdown Content ---------------- */}
       {showNonVerbal && (
         <div className="space-y-1">
           {nonVerbalCategories.map((item) => (

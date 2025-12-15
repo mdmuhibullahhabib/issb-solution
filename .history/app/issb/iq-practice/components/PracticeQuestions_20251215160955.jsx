@@ -39,7 +39,7 @@ export default function PracticeQuestions({
 
         {/* Category */}
         <div>
-          <label className="text-lg mr-2">Category</label>
+          <label className="text-sm">Category</label>
           <select
             value={category}
             onChange={(e) => setCategory(e.target.value)}
