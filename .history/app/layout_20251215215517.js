@@ -28,9 +28,7 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <NextAuthProvider>
-
-          <Toaster />
-          
+<Toaster/>
           <LayoutWrapper>{children}</LayoutWrapper>
 
 

@@ -52,7 +52,7 @@ export default function Navbar() {
     return (
         <>
             <nav
-                className={`lg:max-w-4xl px-2 mt-4 lg:ml-[250px] rounded-full sticky shadow-md fixed top-5 z-50 transition-all ${scroll ? "bg-white shadow-md" : "bg-white"
+                className={`w-[00px] fixed top-0 z-50 transition-all ${scroll ? "bg-white shadow-md" : "bg-white"
                     }`}
             >
                 <div className="max-w-7xl mx-auto px-5 py-3 flex justify-between items-center">
@@ -71,7 +71,7 @@ export default function Navbar() {
                                 <Link
                                     key={link.name}
                                     href={link.href}
-                                    className="text-gray-700 font-semibold hover:text-green-600 transition "
+                                    className="text-gray-700 font-semibold hover:text-blue-600 transition font-medium"
                                 >
                                     {link.name}
                                 </Link>

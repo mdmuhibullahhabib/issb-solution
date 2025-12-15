@@ -16,11 +16,11 @@ export default function LayoutWrapper({ children }) {
 
   return (
     <>
-      {!hideLayout && <Navbar />}
+      {!isAdmin && !isAuth && <Navbar />}
 
       <main>{children}</main>
 
-      {!hideLayout && <Footer />}
+      {!isAdmin && !isAuth && <Footer />}
     </>
   );
 }

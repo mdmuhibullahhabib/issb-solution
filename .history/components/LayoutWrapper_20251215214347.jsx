@@ -12,15 +12,14 @@ export default function LayoutWrapper({ children }) {
   const isResult = pathname.startsWith("/result/");
 
 
-    const hideLayout = isAdmin || isAuth || isExam || isResult;
-
+  
   return (
     <>
-      {!hideLayout && <Navbar />}
+      {!isAdmin && !isAuth && <Navbar />}
 
       <main>{children}</main>
 
-      {!hideLayout && <Footer />}
+      {!isAdmin && !isAuth && <Footer />}
     </>
   );
 }

@@ -58,21 +58,21 @@ const SubmitModal = ({ isOpen, onClose, onSubmit, answers, timeLeft }) => {
                     {/* Stats */}
                     <div className="mb-6 space-y-4 border-r border-gray-300 pr-4">
                         <div className="flex justify-between items-center">
-                            <span className="text-lg text-gray-700">Attempted:</span>
+                            <span className="text-sm text-gray-700">Attempted</span>
                             <span className="font-semibold text-lg text-gray-900">{attemptedCount}</span>
                         </div>
                         <div className="flex justify-between items-center">
-                            <span className="text-lg text-gray-700">Remaining:</span>
+                            <span className="text-sm text-gray-700">Remaining</span>
                             <span className="font-semibold text-lg text-gray-900">{remainingCount}</span>
                         </div>
                         <div className="flex justify-between items-center pt-2 border-t border-gray-200">
-                            <span className="text-lg mr-1 font-medium text-gray-700">Time Left:</span>
-                            <span className="font-bold text-lg text-[#146C43]">{formatTime(timeLeft)}</span>
+                            <span className="text-lg font-medium text-gray-700">Time Left</span>
+                            <span className="font-bold text-2xl text-[#146C43]">{formatTime(timeLeft)}</span>
                         </div>
                     </div>
 
                     {/* Question Grid */}
-                    <div className="grid grid-cols-10 gap-2 overflow-y-auto max-h-[80vh]">
+                    <div className="grid grid-cols-7 gap-2 overflow-y-auto max-h-[80vh]">
                         {QUESTIONS.map((q) => (
                             <div
                                 key={q.id}

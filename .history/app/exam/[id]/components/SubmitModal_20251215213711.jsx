@@ -58,11 +58,11 @@ const SubmitModal = ({ isOpen, onClose, onSubmit, answers, timeLeft }) => {
                     {/* Stats */}
                     <div className="mb-6 space-y-4 border-r border-gray-300 pr-4">
                         <div className="flex justify-between items-center">
-                            <span className="text-lg text-gray-700">Attempted:</span>
+                            <span className="text-sm text-gray-700">Attempted:</span>
                             <span className="font-semibold text-lg text-gray-900">{attemptedCount}</span>
                         </div>
                         <div className="flex justify-between items-center">
-                            <span className="text-lg text-gray-700">Remaining:</span>
+                            <span className="text-sm text-gray-700">Remaining:</span>
                             <span className="font-semibold text-lg text-gray-900">{remainingCount}</span>
                         </div>
                         <div className="flex justify-between items-center pt-2 border-t border-gray-200">

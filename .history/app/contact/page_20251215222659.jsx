@@ -20,9 +20,9 @@ export default function ContactPage() {
   };
 
   return (
-    <section className="w-full bg-gray-50">
+    <section className="w-full ">
       {/* ================= HERO ================= */}
-      <div className="bg-gradient-to-r from-[#0A0F2D] to-[#11174A] text-white -mt-20 pt-42 pb-24 px-4 text-center">
+      <div className="bg-gradient-to-r from-[#0A0F2D] to-[#11174A] text-white pt-36 py-24 px-4 text-center">
         <h1 className="text-3xl md:text-5xl font-bold tracking-tight">
           Contact Mission ISSB
         </h1>
