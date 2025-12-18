@@ -122,9 +122,7 @@ export default function CourseDetails() {
           <span className="line-through text-gray-400">৳{courseData.price.old}</span>
         </div>
 
-        <button
-                  onClick={handleBuySubscription} 
-                   className="w-full bg-green-700 hover:bg-green-800 text-white py-2 rounded-xl">
+        <button className="w-full bg-green-700 hover:bg-green-800 text-white py-2 rounded-xl">
           সাবস্ক্রিপশন কিনুন
         </button>
 

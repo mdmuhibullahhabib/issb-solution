@@ -54,7 +54,7 @@ async signIn({ user, account }) {
         const { providerAccountId, provider } = account
         const { email: user_email, image, name } = user
 
-        //  Await dbConnect & correct collection name
+        // 🔧 Await dbConnect & correct collection name
         const userCollection = await dbConnect(collectionNamesobj.usersCollection)
 
         const isExisted = await userCollection.findOne({ providerAccountId })

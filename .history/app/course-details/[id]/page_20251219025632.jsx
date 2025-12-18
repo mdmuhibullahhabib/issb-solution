@@ -123,8 +123,7 @@ export default function CourseDetails() {
         </div>
 
         <button
-                  onClick={handleBuySubscription} 
-                   className="w-full bg-green-700 hover:bg-green-800 text-white py-2 rounded-xl">
+                  onClick={handleBuySubscription}  className="w-full bg-green-700 hover:bg-green-800 text-white py-2 rounded-xl">
           সাবস্ক্রিপশন কিনুন
         </button>
 
