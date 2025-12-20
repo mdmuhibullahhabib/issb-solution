@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import issb from "../../public/banner/issb.jpeg";
-import Navbar from "../shared/Navbar";
+
 
 export default function Banner() {
   return (
@@ -24,7 +24,7 @@ export default function Banner() {
       {/* ================= Banner Content ================= */}
       <div className="relative z-10 w-full max-w-6xl mx-auto px-4
                       min-h-[85vh] flex flex-col items-center justify-center
-                      text-center text-white gap-8">
+                      text-center text-white gap-8 md:pt-32">
 
         {/* Top Buttons */}
         <div className="flex flex-wrap justify-center gap-4">
