@@ -1,29 +1,32 @@
 "use client";
 
-import { registerUser } from "@/app/actions/auth/registerUser";
 import { useForm } from "react-hook-form";
+import { signIn } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
-export default function RegisterForm() {
+export default function LoginForm() {
   const { register, handleSubmit, formState: { errors } } = useForm();
+  const router = useRouter();
 
   const onSubmit = async (data) => {
-    registerUser(data);
-
+    
+    const result = await signIn("credentials", {
+      // callbackUrl: "/",
+      redirect: false,
+      email: data.email,
+      password: data.password,
+    }); 
+    console.log(data)
+    if (result?.error) {
+      alert("Login failed: " + result.error);
+    } else {
+      alert("Login successful!");
+      router.push("/");
+    }
   };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-      <div>
-        <label className="text-sm font-medium">আপনার নাম লিখুন</label>
-        <input
-          type="text"
-          placeholder="Your Name"
-          className="w-full rounded-full border border-gray-300 px-4 py-2 mt-1 outline-none focus:ring-2 focus:ring-[#FE6A44]"
-          {...register("name", { required: "Full name is required" })}
-        />
-        {errors.name && <p className="text-red-500 text-sm">{errors.name.message}</p>}
-      </div>
-
       <div>
         <label className="text-sm font-medium">আপনার ইমেইল লিখুন</label>
         <input
@@ -36,18 +39,18 @@ export default function RegisterForm() {
       </div>
 
       <div>
-        <label className="text-sm font-medium">আপনার পাসওয়ার্ড লিখুন</label>
+        <label className="text-sm font-medium">Password</label>
         <input
           type="password"
           placeholder="••••••••"
           className="w-full rounded-full border border-gray-300 px-4 py-2 mt-1 outline-none focus:ring-2 focus:ring-[#FE6A44]"
-          {...register("password", { required: "Password is required", minLength: { value: 6, message: "Password must be at least 6 characters" } })}
+          {...register("password", { required: "Password is required" })}
         />
         {errors.password && <p className="text-red-500 text-sm">{errors.password.message}</p>}
       </div>
 
       <button className="w-full bg-[#FE6A44] text-white font-medium py-2 rounded-full hover:opacity-90 transition">
-        Sign Up
+        Login
       </button>
     </form>
   );

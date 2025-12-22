@@ -14,7 +14,7 @@ export default function RegisterForm() {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
       <div>
-        <label className="text-sm font-medium">আপনার নাম লিখুন</label>
+        <label className="text-sm font-medium">Full Name</label>
         <input
           type="text"
           placeholder="Your Name"
@@ -25,7 +25,7 @@ export default function RegisterForm() {
       </div>
 
       <div>
-        <label className="text-sm font-medium">আপনার ইমেইল লিখুন</label>
+        <label className="text-sm font-medium">Email</label>
         <input
           type="email"
           placeholder="you@example.com"

@@ -33,15 +33,15 @@ export default function Banner() {
 
         {/* Top Buttons */}
         <div className="flex flex-wrap justify-center gap-4">
-          {forces.map((force) => (
+          {["Airforce", "Navy", "Army"].map((item) => (
             <Link
-              key={force.name}
-              href={force.path}
+              key={item}
+              href="#"
               className="px-8 py-3 rounded-full border border-white/80
                          hover:bg-white hover:text-black transition
                          font-semibold text-sm sm:text-base"
             >
-              {force.name}
+              {item}
             </Link>
           ))}
         </div>
