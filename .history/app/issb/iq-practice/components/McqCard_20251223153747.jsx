@@ -2,7 +2,6 @@
 
 import React, { useState } from "react";
 import useSubscriptions from "@/hooks/useSubscriptions";
-import SubscriptionModal from "../../components/SubscriptionModal";
 
 const McqCard = () => {
   const { subscriptions, isLoading } = useSubscriptions();

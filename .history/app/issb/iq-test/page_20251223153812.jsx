@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import { Lock, Play } from "lucide-react";
 import Link from "next/link";
 import useSubscriptions from "@/hooks/useSubscriptions";
-import SubscriptionModal from "../components/SubscriptionModal";
 
 export default function IqTest() {
   const [showModal, setShowModal] = useState(false);

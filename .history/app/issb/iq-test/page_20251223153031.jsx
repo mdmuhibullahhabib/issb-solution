@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import { Lock, Play } from "lucide-react";
 import Link from "next/link";
 import useSubscriptions from "@/hooks/useSubscriptions";
-import SubscriptionModal from "../components/SubscriptionModal";
 
 export default function IqTest() {
   const [showModal, setShowModal] = useState(false);
@@ -17,6 +16,7 @@ export default function IqTest() {
     { id: 4, title: "Model Test 4" },
   ];
 
+  // Get subscription data
   const { subscription, isLoading, error } = useSubscriptions();
   const isSubscribed = subscription?.[0]?.status === "active";
 
@@ -63,12 +63,32 @@ export default function IqTest() {
         })}
       </div>
 
-      {/* ===== Subscription Modal ===== */}
-      <SubscriptionModal
-        show={showModal}
-        onClose={() => setShowModal(false)}
-        redirectUrl="http://localhost:3000/course-details/issb-iq-psychological-mastery"
-      />
+      {/* ================= Modal ================= */}
+      {showModal && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 px-4">
+          <div className="bg-white p-6 rounded-xl max-w-sm w-full shadow-lg animate-fadeIn">
+            <h3 className="text-xl font-bold mb-3 text-center">Subscription Required</h3>
+            <p className="text-gray-600 mb-6 text-center">
+              You need an active subscription to unlock this model test.
+            </p>
+
+            <div className="flex justify-between gap-3">
+              <button
+                onClick={() => setShowModal(false)}
+                className="flex-1 px-4 py-2 bg-gray-300 text-gray-700 rounded-lg hover:bg-gray-400 transition"
+              >
+                Close
+              </button>
+              <Link
+                href="http://localhost:3000/course-details/issb-iq-psychological-mastery"
+                className="flex-1 px-4 py-2 bg-blue-600 text-white rounded-lg text-center hover:bg-blue-700 transition"
+              >
+                Get Subscription
+              </Link>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
