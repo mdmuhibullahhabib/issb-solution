@@ -77,6 +77,7 @@ const handleBuySubscription = async () => {
     });
 
     if (!res.ok) {
+      clg("Payment request failed");
       throw new Error("Payment request failed");
     }
 

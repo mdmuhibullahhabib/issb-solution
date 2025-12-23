@@ -5,7 +5,7 @@ export const collectionNamesobj = {
     usersCollection : "users",
     cartCollection : "carts",
     ordersCollection : "orders",
-    subscriptionsCollection : "subscriptions",
+    subscriptionsCollection : "subscriptions"
     paymentsCollection : "payments"
 }
 

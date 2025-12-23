@@ -61,41 +61,6 @@ export default function CourseDetails() {
 // };
 
 
-const handleBuySubscription = async () => {
-  try {
-    if (!session?.user?.email) {
-      router.push("/auth");
-      return;
-    }
-
-    const res = await fetch("/api/make-payment", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        courseId: courseData._id,
-      }),
-    });
-
-    if (!res.ok) {
-      throw new Error("Payment request failed");
-    }
-
-    const data = await res.json();
-
-    if (!data?.bkashURL) {
-      throw new Error("Invalid payment response");
-    }
-
-    // ✅ Redirect to bKash
-    window.location.href = data.bkashURL;
-
-  } catch (error) {
-    console.error("bKash Init Error:", error);
-    alert("Payment failed. Please try again.");
-  }
-};
-
-
 
 
   return (

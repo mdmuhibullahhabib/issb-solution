@@ -26,75 +26,39 @@ export default function CourseDetails() {
   if (!courseData) return <p>Course not found</p>;
 
 
-// const handleBuySubscription = async () => {
-//   try {
-//     // ================= 1️⃣ Login check =================
-//     if (!session?.user?.email) {
-//       router.push("/auth");
-//       return;
-//     }
-
-//     // ================= 2️⃣ Call server payment route =================
-//     const res = await fetch("/api/make-payment", {
-//       method: "POST",
-//       headers: { "Content-Type": "application/json" },
-//       body: JSON.stringify({
-//         courseId: courseData._id, // only send courseId
-//       }),
-//     });
-
-//     const data = await res.json();
-
-//     if (!res.ok) {
-//       alert(data.message || "Payment initialization failed");
-//       return;
-//     }
-
-//     // ================= 3️⃣ Redirect to bKash =================
-//     // 🔴 IMPORTANT: redirect comes from server
-//     window.location.href = data.bkashURL;
-
-//   } catch (error) {
-//     console.error("bKash Init Error:", error);
-//     alert("Something went wrong. Please try again.");
-//   }
-// };
-
-
 const handleBuySubscription = async () => {
   try {
+    // ================= 1️⃣ Login check =================
     if (!session?.user?.email) {
       router.push("/auth");
       return;
     }
 
+    // ================= 2️⃣ Call server payment route =================
     const res = await fetch("/api/make-payment", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        courseId: courseData._id,
+        courseId: courseData._id, // only send courseId
       }),
     });
 
-    if (!res.ok) {
-      throw new Error("Payment request failed");
-    }
-
     const data = await res.json();
 
-    if (!data?.bkashURL) {
-      throw new Error("Invalid payment response");
+    if (!res.ok) {
+      alert(data.message || "Payment initialization failed");
+      return;
     }
 
-    // ✅ Redirect to bKash
+    // ================= 3️⃣ Redirect to bKash =================
+    // 🔴 IMPORTANT: redirect comes from server
     window.location.href = data.bkashURL;
 
   } catch (error) {
     console.error("bKash Init Error:", error);
-    alert("Payment failed. Please try again.");
+    alert("Something went wrong. Please try again.");
   }
 };
-
 
 
 

@@ -59,8 +59,6 @@ export default function CourseDetails() {
 //     alert("Something went wrong. Please try again.");
 //   }
 // };
-
-
 const handleBuySubscription = async () => {
   try {
     if (!session?.user?.email) {

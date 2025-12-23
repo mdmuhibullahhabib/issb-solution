@@ -78,6 +78,7 @@ const handleBuySubscription = async () => {
 
     if (!res.ok) {
       throw new Error("Payment request failed");
+      throw new Error("Payment request failed");
     }
 
     const data = await res.json();
