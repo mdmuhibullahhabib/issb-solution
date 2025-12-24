@@ -10,8 +10,8 @@ export default function PaymentPage() {
   const [loading, setLoading] = useState(false);
   const [paymentInfo, setPaymentInfo] = useState(null);
   const [showSuccessModal, setShowSuccessModal] = useState(false);
-console.log(paymentInfo.courseId)
-  const { data: session } = useSession();
+console.log
+  const { data: session } = useSession(); // ✅ session
 
   const {
     register,
@@ -32,9 +32,9 @@ console.log(paymentInfo.courseId)
     try {
       const payload = {
         ...data,
-        email: session?.user?.email,  
-        courseId: paymentInfo.courseId,   
-        price: paymentInfo.price,   
+        email: session?.user?.email,        // ✅ NEW (gmail)
+        courseId: paymentInfo.courseId,     // ✅ already
+        price: paymentInfo.price,           // ✅ already
       };
 
       const res = await fetch("/api/manual-payment", {

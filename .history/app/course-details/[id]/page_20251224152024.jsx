@@ -20,7 +20,7 @@ export default function CourseDetails() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 3000); 
+    }, 3000); // 3 seconds
 
     return () => clearTimeout(timer);
   }, []);

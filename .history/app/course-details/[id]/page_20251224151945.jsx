@@ -7,7 +7,6 @@ import { useParams, useRouter } from "next/navigation";
 import useCourses from "@/hooks/useCourses";
 import { useSession } from "next-auth/react";
 import CourseDetailsLoading from "./components/CourseDetailsLoading";
-import { useState } from "react";
 
 
 export default function CourseDetails() {
@@ -20,7 +19,7 @@ export default function CourseDetails() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 3000); 
+    }, 3000); // 3 seconds
 
     return () => clearTimeout(timer);
   }, []);

@@ -6,8 +6,6 @@ import LectureDetailsAccordion from "./components/GAQDivision";
 import { useParams, useRouter } from "next/navigation";
 import useCourses from "@/hooks/useCourses";
 import { useSession } from "next-auth/react";
-import CourseDetailsLoading from "./components/CourseDetailsLoading";
-import { useState } from "react";
 
 
 export default function CourseDetails() {
@@ -15,18 +13,11 @@ export default function CourseDetails() {
   const params = useParams();
   const { data: session, status } = useSession();
   const router = useRouter();
-  const [loading, setLoading] = useState(true);
+  console.log(session)
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 3000); 
 
-    return () => clearTimeout(timer);
-  }, []);
-
-  if (isLoading || loading) return <CourseDetailsLoading />;
-    if (isError) return <p>Error: {error.message}</p>;
+  if (isLoading) return <p>Loading...</p>;
+  if (isError) return <p>Error: {error.message}</p>;
 
   // Find course 
   const courseData = courses?.find((course) => course.slug === params.id);

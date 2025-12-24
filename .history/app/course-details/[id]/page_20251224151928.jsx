@@ -7,7 +7,6 @@ import { useParams, useRouter } from "next/navigation";
 import useCourses from "@/hooks/useCourses";
 import { useSession } from "next-auth/react";
 import CourseDetailsLoading from "./components/CourseDetailsLoading";
-import { useState } from "react";
 
 
 export default function CourseDetails() {
@@ -15,12 +14,14 @@ export default function CourseDetails() {
   const params = useParams();
   const { data: session, status } = useSession();
   const router = useRouter();
+  console.log(session)
   const [loading, setLoading] = useState(true);
 
+  // ================= 3 সেকেন্ডের লোডিং =================
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 3000); 
+    }, 3000); // 3 seconds
 
     return () => clearTimeout(timer);
   }, []);
