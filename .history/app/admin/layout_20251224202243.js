@@ -14,6 +14,7 @@ export default function AdminLayout({ children }) {
     { name: "Orders", path: "/admin/orders" },
     { name: "Course", path: "/admin/course" },
     { name: "Reports", path: "/admin/reports" },
+    { name: "Course", path: "/admin/course" },
     { name: "Home", path: "/" },
   ];
 

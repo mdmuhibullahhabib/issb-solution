@@ -8,12 +8,11 @@ export default function AdminLayout({ children }) {
 
   const menuItems = [
     { name: "Dashboard", path: "/admin/dashboard" },
-    { name: "Students", path: "/admin/students" },
-    { name: "Payments", path: "/admin/payments" },
-    { name: "Subscriptions", path: "/admin/subscriptions" },
+    { name: "Users", path: "/admin/users" },
     { name: "Orders", path: "/admin/orders" },
     { name: "Course", path: "/admin/course" },
-    { name: "Reports", path: "/admin/reports" },
+    { name: "Course", path: "/admin/course" },
+    { name: "Course", path: "/admin/course" },
     { name: "Home", path: "/" },
   ];
 
