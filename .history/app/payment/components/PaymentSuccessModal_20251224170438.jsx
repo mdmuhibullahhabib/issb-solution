@@ -1,7 +1,4 @@
-"use client"
 import { CheckCircle } from "lucide-react";
-import Link from "next/link";
-
 
 export default function PaymentSuccessModal({ isOpen, onClose }) {
   if (!isOpen) return null;
@@ -40,7 +37,6 @@ export default function PaymentSuccessModal({ isOpen, onClose }) {
 
         {/* Button */}
         <Link
-        href={"/"}
           onClick={onClose}
           className="mt-6 w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-xl font-semibold transition"
         >

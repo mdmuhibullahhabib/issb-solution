@@ -7,7 +7,7 @@ import { useParams, useRouter } from "next/navigation";
 import useCourses from "@/hooks/useCourses";
 import { useSession } from "next-auth/react";
 import CourseDetailsLoading from "./components/CourseDetailsLoading";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 
 export default function CourseDetails() {

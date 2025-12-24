@@ -6,7 +6,7 @@ import { toast, Toaster } from "react-hot-toast";
 import PaymentSuccessModal from "./components/PaymentSuccessModal";
 import { useSession } from "next-auth/react";
 
-const image_hosting_key = process.env.NEXT_PUBLIC_IMAGE_API_KEY;
+const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
 
 export default function PaymentPage() {
@@ -31,30 +31,23 @@ export default function PaymentPage() {
   /* ================= Submit ================= */
   const onSubmit = async (data) => {
 
+       const uploadedImages = await Promise.all(
+      imageFiles.map(async (img) => {
+        const formData = new FormData();
+        formData.append("image", img);
+        const res = await axiosPublic.post(image_hosting_api, formData, {
+          headers: { "content-type": "multipart/form-data" },
+        });
+        return res.data?.data?.display_url;
+      })
+    );
 
+    
     setLoading(true);
     try {
-
-      let imageUrl = null;
-
-      /* CHANGE 2: Screenshot optional upload */
-      if (data.screenshot && data.screenshot[0]) {
-        const formData = new FormData();
-        formData.append("image", data.screenshot[0]);
-
-        const imgRes = await fetch(image_hosting_api, {
-          method: "POST",
-          body: formData,
-        });
-
-        const imgData = await imgRes.json();
-        imageUrl = imgData?.data?.display_url || null;
-      }
-
       const payload = {
         ...data,
         email: session?.user?.email,  
-        image: imageUrl,  
         courseId: paymentInfo.courseId,   
         price: paymentInfo.price,   
       };

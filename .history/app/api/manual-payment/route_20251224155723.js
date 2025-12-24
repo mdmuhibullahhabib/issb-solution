@@ -34,9 +34,9 @@ export async function POST(req) {
       name: body.name,
       phone: body.phone,
       trxId: body.trxId,
-      image: body.image,
+      image: body.trxId,
 
-      paymentMethod: body.paymentMethod,
+      paymentMethod: body.paymentMethod, // bkash / nagad
       email: body.email,
 
       courseId: body.courseId,

@@ -31,13 +31,24 @@ export default function PaymentPage() {
   /* ================= Submit ================= */
   const onSubmit = async (data) => {
 
+    //    const uploadedImage = await Promise.all(
+    //   imageFiles.map(async (img) => {
+    //     const formData = new FormData();
+    //     formData.append("image", img);
+    //     const res = await axiosPublic.post(image_hosting_api, formData, {
+    //       headers: { "content-type": "multipart/form-data" },
+    //     });
+    //     return res.data?.data?.display_url;
+    //   })
+    // );
 
+    
     setLoading(true);
     try {
 
       let imageUrl = null;
 
-      /* CHANGE 2: Screenshot optional upload */
+      /* 🔴 CHANGE 2: Screenshot optional upload */
       if (data.screenshot && data.screenshot[0]) {
         const formData = new FormData();
         formData.append("image", data.screenshot[0]);

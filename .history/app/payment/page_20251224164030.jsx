@@ -31,6 +31,16 @@ export default function PaymentPage() {
   /* ================= Submit ================= */
   const onSubmit = async (data) => {
 
+    //    const uploadedImage = await Promise.all(
+    //   imageFiles.map(async (img) => {
+    //     const formData = new FormData();
+    //     formData.append("image", img);
+    //     const res = await axiosPublic.post(image_hosting_api, formData, {
+    //       headers: { "content-type": "multipart/form-data" },
+    //     });
+    //     return res.data?.data?.display_url;
+    //   })
+    // );
 
     setLoading(true);
     try {

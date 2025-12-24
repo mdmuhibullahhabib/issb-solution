@@ -36,7 +36,7 @@ export async function POST(req) {
       trxId: body.trxId,
       image: body.image,
 
-      paymentMethod: body.paymentMethod,
+      paymentMethod: body.paymentMethod, 
       email: body.email,
 
       courseId: body.courseId,
