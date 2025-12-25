@@ -17,7 +17,7 @@ export async function POST(req) {
       status,
     } = body;
 
-    // REQUIRED CHECK
+    // 🔴 REQUIRED CHECK
     if (!userId || !userEmail || !planId || !transactionId || !price) {
       return NextResponse.json(
         { error: "Required fields missing" },

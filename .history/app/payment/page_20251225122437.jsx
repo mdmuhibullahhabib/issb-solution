@@ -53,10 +53,10 @@ export default function PaymentPage() {
 
       const payload = {
         ...data,
-        email: session?.user?.email,
-        image: imageUrl,
-        courseId: paymentInfo.courseId,
-        price: paymentInfo.price,
+        email: session?.user?.email,  
+        image: imageUrl,  
+        courseId: paymentInfo.courseId,   
+        price: paymentInfo.price,   
       };
 
       const res = await fetch("/api/manual-payment", {
@@ -67,38 +67,14 @@ export default function PaymentPage() {
 
       const result = await res.json();
       setLoading(false);
-      console.log(result)
 
       if (res.ok) {
-        toast.success("পেমেন্ট সফল হয়েছে ✅");
+        toast.success("পেমেন্ট তথ্য সফল হয়েছে ✅");
         reset();
 
         setTimeout(() => {
-          setShowSuccessModal(true);
+          setShowSuccessModal(true); // ✅ modal
         }, 500);
-
-        // Now subscriptions
-        const startDate = new Date();
-        const endDate = new Date();
-        endDate.setDate(endDate.getDate() + 30); // 30 days
-
-        const subscriptionPayload = {
-          userEmail: session?.user?.email,      
-          planId: "30 days",     
-          transactionId: result.insertedId, 
-          price: paymentInfo.price,
-          status: "pending",
-          startDate,
-          endDate,
-          examCredit: 1,
-        };
-
-        await fetch("/api/subscriptions", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(subscriptionPayload),
-        });
-
       } else {
         toast.error(result.message || "কিছু একটা সমস্যা হয়েছে ❌");
       }
@@ -189,28 +165,28 @@ export default function PaymentPage() {
           </div>
 
           {/* 🔹 Screenshot (OPTIONAL) */}
-          <div>
-            <label className="block text-sm font-medium text-slate-700">
-              পেমেন্ট স্ক্রিনশট <span className="text-slate-400">(ঐচ্ছিক)</span>
-            </label>
+<div>
+  <label className="block text-sm font-medium text-slate-700">
+    পেমেন্ট স্ক্রিনশট <span className="text-slate-400">(ঐচ্ছিক)</span>
+  </label>
 
-            <input
-              type="file"
-              accept="image/*"
-              {...register("screenshot")}
-              className="mt-1 block w-full text-sm
+  <input
+    type="file"
+    accept="image/*"
+    {...register("screenshot")}
+    className="mt-1 block w-full text-sm
       file:mr-4 file:py-2 file:px-4
       file:rounded-lg file:border-0
       file:text-sm file:font-semibold
       file:bg-green-50 file:text-green-700
       hover:file:bg-green-100
       cursor-pointer"
-            />
+  />
 
-            <p className="text-xs text-slate-500 mt-1">
-              স্ক্রিনশট দিলে পেমেন্ট যাচাই দ্রুত হবে
-            </p>
-          </div>
+  <p className="text-xs text-slate-500 mt-1">
+    স্ক্রিনশট দিলে পেমেন্ট যাচাই দ্রুত হবে
+  </p>
+</div>
 
           {/* 🔹 Submit */}
           <button

@@ -2,30 +2,15 @@ import { NextResponse } from "next/server";
 import dbConnect, { collectionNamesobj } from "@/lib/dbconnect";
 import { ObjectId } from "mongodb";
 
-export async function PATCH(req, context) {
+export async function PATCH(req, { params }) {
   try {
-    // ✅ FIX 1: params await করো
-    const params = await context.params;
     const { id } = params;
+    const body = await req.json();
 
-    // ✅ FIX 2: body
-    const { status } = await req.json();
-
-    console.log("PATCH ID:", id);
-    console.log("PATCH STATUS:", status);
-
-    // ✅ FIX 3: validate id
-    if (!id || !ObjectId.isValid(id)) {
+    // 🔴 FIX 1: ObjectId validate
+    if (!ObjectId.isValid(id)) {
       return NextResponse.json(
         { error: "Invalid payment id" },
-        { status: 400 }
-      );
-    }
-
-    // ✅ FIX 4: validate status
-    if (!["approved", "rejected"].includes(status)) {
-      return NextResponse.json(
-        { error: "Invalid status" },
         { status: 400 }
       );
     }
@@ -38,12 +23,13 @@ export async function PATCH(req, context) {
       { _id: new ObjectId(id) },
       {
         $set: {
-          status,
+          status: body.status,
           updatedAt: new Date(),
         },
       }
     );
 
+    // 🔴 FIX 2: update check
     if (result.matchedCount === 0) {
       return NextResponse.json(
         { error: "Payment not found" },

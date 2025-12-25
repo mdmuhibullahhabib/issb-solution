@@ -4,9 +4,9 @@ import { ObjectId } from "mongodb";
 
 export async function PATCH(req, context) {
   try {
-    // ✅ FIX 1: params await করো
-    const params = await context.params;
-    const { id } = params;
+    console.log("CONTEXT PARAMS:", context.params);
+    // ✅ FIX 1: params ঠিকভাবে নাও
+    const { id } = context.params;
 
     // ✅ FIX 2: body
     const { status } = await req.json();

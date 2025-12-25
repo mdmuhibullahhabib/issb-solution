@@ -67,7 +67,6 @@ export default function PaymentPage() {
 
       const result = await res.json();
       setLoading(false);
-      console.log(result)
 
       if (res.ok) {
         toast.success("পেমেন্ট সফল হয়েছে ✅");
@@ -83,8 +82,9 @@ export default function PaymentPage() {
         endDate.setDate(endDate.getDate() + 30); // 30 days
 
         const subscriptionPayload = {
+          userId: session?.user?.id,         
           userEmail: session?.user?.email,      
-          planId: "30 days",     
+          planId: "30 days",                    
           transactionId: result.insertedId, 
           price: paymentInfo.price,
           status: "pending",

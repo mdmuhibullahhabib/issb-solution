@@ -10,8 +10,8 @@ export default function AdminPayments() {
 
     /* ================= Approve / Reject ================= */
   const updateStatus = async (id, status) => {
-    console.log("Updating:", id, status);
     setActionLoading(id); 
+  console.log("Updating:", id, status);
     try {
       const res = await fetch(`/api/admin/payments/${id}`, {
         method: "PATCH",
